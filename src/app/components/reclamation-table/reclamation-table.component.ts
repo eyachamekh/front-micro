@@ -9,8 +9,16 @@ import { ReclamationService } from '../../services/reclamation.service';
 export class ReclamationTableComponent implements OnInit {
 
   reclamations: any[] = [];
-  displayedColumns: string[] = ['id', 'client_nom', 'message', 'produit', 'statut', 'file_name', 'phone_number', 'actions'];
   searchQuery: string = '';
+  isFormVisible: boolean = false;
+  newReclamation = {
+    clientNom: '',
+    message: '',
+    produit: '',
+    statut: '',
+    fileName: '',
+    phoneNumber: ''
+  };
 
   constructor(private reclamationService: ReclamationService) { }
 
@@ -37,7 +45,23 @@ export class ReclamationTableComponent implements OnInit {
   }
 
   updateReclamation(reclamation: any): void {
-    // You can implement the logic for updating reclamation here
-    console.log('Updating reclamation', reclamation);
+    // Add logic for editing a reclamation here (e.g., show a form to edit)
+    console.log('Update reclamation:', reclamation);
+  }
+
+  openAddReclamationForm(): void {
+    this.isFormVisible = true; // Show the popup form
+  }
+
+  closeForm(): void {
+    this.isFormVisible = false; // Hide the popup form
+  }
+
+  submitReclamation(): void {
+    this.reclamationService.addReclamation(this.newReclamation).subscribe(response => {
+      console.log('Reclamation added:', response);
+      this.loadReclamations(); // Reload data after adding
+      this.closeForm(); // Close the form
+    });
   }
 }

@@ -1,15 +1,80 @@
-table {
+.add-button-container {
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 8px 15px;
+    background-color: #003366; /* Dark blue */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #00224d; /* Darker shade of blue */
+  }
+  
+  .popup-form {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin: 20px 0;
-  }
-  
-  .search-bar {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Background overlay */
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
   }
   
-  mat-form-field {
-    flex: 1;
+  .popup-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .popup-container h3 {
+    margin-top: 0;
+  }
+  
+  .popup-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .popup-container label {
+    margin-bottom: 5px;
+  }
+  
+  .popup-container input, .popup-container textarea {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .popup-container button {
+    padding: 10px 15px;
+    margin-top: 10px;
+    background-color: #003366; /* Dark blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .popup-container button:hover {
+    background-color: #00224d; /* Darker shade of blue */
+  }
+  
+  .popup-container button[type="button"] {
+    background-color: #f44336; /* Red for cancel */
+  }
+  
+  .popup-container button[type="button"]:hover {
+    background-color: #e53935; /* Darker red */
   }
   
